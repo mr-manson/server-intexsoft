@@ -2,13 +2,14 @@
   "name": "web-api",
   "version": "1.0.0",
   "description": "intexsoft-project",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "sequelize": "^6.31.1"
   }
 }
