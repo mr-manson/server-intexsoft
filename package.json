@@ -4,12 +4,17 @@
   "description": "intexsoft-project",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "go": "nodemon server/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "mysql2": "^3.3.2",
     "sequelize": "^6.31.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
