@@ -9,7 +9,7 @@ router.get("/todos", async (req, res) => {
 
 router.get("/todo/:id", async (req, res) => {
     const task = await Task.findOne({
-        where:{
+        where: {
             id: req.params.id,
         }
     })
@@ -23,7 +23,7 @@ router.post("/todos", async (req, res) => {
         "description": description,
     });
 
-    try{
+    try {
         await newTask.save();
         res.status(200).json(newTask);
     } catch (error) {
@@ -36,8 +36,14 @@ router.put("/todo/:id", (req, res) => {
 
 });
 
-router.delete("/todo/:id", (req, res) => {
-
+router.delete("/todo/:id", async (req, res) => {
+    const task = await Task.findOne({
+        where: {
+            id: req.params.id,
+        }
+    });
+    await task.destroy();
+    res.status(204).json({});
 });
 
 module.exports = router;
