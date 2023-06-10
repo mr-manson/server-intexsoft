@@ -1,5 +1,5 @@
 const express = require("express");
-const routs = require("../routs/routes");
+const routs = require("../routes/routes");
 const {connect} = require('../db/db.js');
 
 const app = express();

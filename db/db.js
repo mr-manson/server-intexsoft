@@ -5,9 +5,9 @@ const sequelize = new Sequelize( /*TODO add variables*/
     "oleg",
     "ndwJJ787w/ww",
     {
-    dialect: "mysql",
-    host: "nisnas.synology.me"
-});
+        dialect: "mysql",
+        host: "nisnas.synology.me"
+    });
 
 const connect = async () => {
     try {
