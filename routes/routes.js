@@ -22,7 +22,6 @@ router.post("/todos", async (req, res) => {
         "content": content,
         "description": description,
     });
-
     try {
         await newTask.save();
         res.status(200).json(newTask);
