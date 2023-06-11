@@ -1,8 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const Task = require("../models/task");
+const userController = require("../server/controllers/user-controllers");
 
-router.get("/todos", async (req, res) => {
+router.post("/signup", userController.signup);
+router.post("/signin", userController.signin);
+router.post("/signout", userController.signout);
+router.get("/activate/:link", userController.activate);
+router.get("/refresh", userController.refresh);
+
+/*router.get("/todos", async (req, res) => {
     const todos = await Task.findAll();
     res.status(200).json(todos);
 });
@@ -43,6 +49,6 @@ router.delete("/todo/:id", async (req, res) => {
     });
     await task.destroy();
     res.status(204).json({});
-});
+});*/
 
 module.exports = router;

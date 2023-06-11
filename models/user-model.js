@@ -1,7 +1,7 @@
 const {sequelize} = require("../db/db");
 const {DataTypes} = require("sequelize");
 
-const User = sequelize.define("User", {
+const UserModel = sequelize.define("User", {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -35,7 +35,7 @@ const User = sequelize.define("User", {
 );
 
 (async () => {
-    await User.sync({alter: true})
+    await UserModel.sync({alter: true})
 })();
 
-module.exports = User;
+module.exports = UserModel;
