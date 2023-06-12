@@ -22,7 +22,7 @@ class UserService {
             password: hashPassword,
             activationLink: activationLink,
         })
-        await mailService.sendActivationMail(email, `${process.env.API_URL}/api/signup/activationLink`);
+        await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`);
         const userDto = new UserDto(user);
         const tokens = tokenService.generateTokens({...userDto});
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
@@ -30,6 +30,19 @@ class UserService {
             ...tokens,
             user: userDto
         }
+    }
+
+    async activate(activationLink) {
+        const user = await User.findOne({
+            where: {
+                activationLink: activationLink,
+            }
+        })
+        if (!user) {
+            throw new Error("Некорректная ссылка");
+        }
+        user.isActivated = true;
+        await user.save();
     }
 }
 

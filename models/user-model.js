@@ -34,8 +34,8 @@ const UserModel = sequelize.define("User", {
     }
 );
 
-(async () => {
+/*(async () => {
     await UserModel.sync({alter: true})
-})();
+})();*/
 
 module.exports = UserModel;
