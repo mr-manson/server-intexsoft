@@ -27,8 +27,8 @@ User.hasOne(TokenModel, {
 });
 TokenModel.belongsTo(User);
 
-/*(async () => {
+(async () => {
     await TokenModel.sync({alter: true})
-})();*/
+})();
 
 module.exports = TokenModel;
