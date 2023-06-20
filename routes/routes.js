@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../server/controllers/user-controllers");
+const userController = require("../controllers/user-controllers");
+const styleController= require("../controllers/style-controllers")
 const {body} =require("express-validator");
 
 router.post("/signup",
@@ -11,6 +12,8 @@ router.post("/signin", userController.signin);
 router.post("/signout", userController.signout);
 router.get("/activate/:link", userController.activate);
 router.get("/refresh", userController.refresh);
+
+router.get("/styles", styleController.getStyles);
 
 /*router.get("/todos", async (req, res) => {
     const todos = await Task.findAll();

@@ -1,10 +1,10 @@
-const User = require("../../models/user-model");
+const User = require("../models/user-model");
 const bcrypt = require("bcrypt");
 const uuid = require("uuid");
 const mailService = require("./mail-service");
 const tokenService = require("./token-service");
 const UserDto = require("../dtos/user-dto");
-const ApiError = require("../../exeptions/api-error");
+const ApiError = require("../exeptions/api-error");
 
 class UserService {
     async signup(email, password) {

@@ -1,6 +1,6 @@
 const userService = require("../services/user-service");
 const {validationResult} = require("express-validator");
-const ApiError = require("../../exeptions/api-error");
+const ApiError = require("../exeptions/api-error");
 
 class UserController {
     async signup(req, res, next) {

@@ -1,31 +1,20 @@
 const {sequelize} = require("../db/db");
 const {DataTypes} = require("sequelize");
 
-const UserModel = sequelize.define("User", {
+const StyleModel = sequelize.define("Style", {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false,
         },
-        username: {
-            type: DataTypes.STRING,
-        },
-        email: {
-            type: DataTypes.STRING,
-            unique: true,
-            allowNull: false,
-        },
-        password: {
+        styleName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        isActivated: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false,
-        },
-        activationLink: {
+        imgLink: {
             type: DataTypes.STRING,
+            allowNull: false,
         },
     },
     {
@@ -35,7 +24,7 @@ const UserModel = sequelize.define("User", {
 );
 
 /*(async () => {
-    await UserModel.sync({alter: true})
+    await StyleModel.sync({force: true})
 })();*/
 
-module.exports = UserModel;
+module.exports = StyleModel;
